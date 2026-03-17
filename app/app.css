@@ -32,22 +32,24 @@ body {
   flex-wrap: wrap;
 }
 
-.top-buttons button {
+.top-buttons a {
   padding: 0.75rem 1.5rem;
   background-color: #007bff;
   color: white;
-  border: none;
+  text-decoration: none;
   border-radius: 0.5rem;
-  cursor: pointer;
   font-size: 1rem;
   font-weight: 500;
-  min-height: 44px;
-  /* Touch target size */
+  min-height: 44px; /* Touch target size */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex: 1;
   max-width: 150px;
+  box-sizing: border-box;
 }
 
-.top-buttons button:hover {
+.top-buttons a:hover {
   background-color: #0056b3;
 }
 
@@ -75,59 +77,46 @@ body {
   line-height: 1.5;
 }
 
-.top-buttons .nav-button {
-  padding: 0.75rem 1.5rem;
-  background-color: #007bff;
-  color: white;
+.category-preview {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 1.5rem;
   border: none;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.category-preview img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
   border-radius: 0.5rem;
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: 500;
-  min-height: 44px;
-  flex: 1;
-  max-width: 150px;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  margin-bottom: 1rem;
 }
 
-.top-buttons .nav-button:hover {
-  background-color: #0056b3;
-}
-
-.categories-page {
-  padding-top: 1.25rem;
-}
-
-.categories-post {
-  margin-top: 0;
-}
-
-.categories-title {
-  margin: 0 0 1rem;
-  font-size: 1.75rem;
+.category-preview h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
   color: #333;
 }
 
-.categories-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  gap: 0.75rem;
+.category-preview p {
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 1rem;
 }
 
-.category-item {
-  padding: 0.85rem 1rem;
-  border-radius: 0.6rem;
-  background-color: #f1f5f9;
-  color: #1f2937;
+.category-preview a {
+  color: #007bff;
+  text-decoration: none;
   font-weight: 500;
 }
 
-.categories-empty {
-  margin: 0;
-  color: #666;
+.category-preview a:hover {
+  text-decoration: underline;
 }
