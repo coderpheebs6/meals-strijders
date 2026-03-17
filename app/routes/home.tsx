@@ -15,7 +15,7 @@ const Home = () => {
     <div className="container">
       <nav className="top-buttons">
         <Link to="/categories">Categories</Link>
-        <Link to="/meals-detail">Latest Meals</Link>
+        <Link to="/latest-meals">Latest Meals</Link>
       </nav>
       <div className="category-preview">
         <img src={featuredCategory.strCategoryThumb} alt={featuredCategory.strCategory} />
