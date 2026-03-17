@@ -5,7 +5,21 @@ export const clientLoader = async () => {
         "https://www.themealdb.com/api/json/v1/1/categories.php"
     );
     const data = await response.json();
-    return { categories: data.categories };
+    const categories = await Promise.all(
+        data.categories.map(async (category) => {
+            const mealsResponse = await fetch(
+                `https://www.themealdb.com/api/json/v1/1/filter.php?c=${encodeURIComponent(category.strCategory)}`
+            );
+            const mealsData = await mealsResponse.json();
+
+            return {
+                ...category,
+                previewMealId: mealsData.meals?.[0]?.idMeal ?? null,
+            };
+        })
+    );
+
+    return { categories };
 }
 
 const MealsCategories = () => {
@@ -22,7 +36,9 @@ const MealsCategories = () => {
                     <ul className="categories-list">
                         {categories.map((category) => (
                             <li key={category.idCategory} className="category-item">
-                                <Link to={`/meals-details/${category.idCategory}`}>{category.strCategory}</Link>
+                                <Link to={category.previewMealId ? `/meals-detail?id=${category.previewMealId}` : "/latest-meals"}>
+                                    {category.strCategory}
+                                </Link>
                             </li>
                         ))}
                     </ul>
