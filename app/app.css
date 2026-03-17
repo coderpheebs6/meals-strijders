@@ -40,7 +40,8 @@ body {
   border-radius: 0.5rem;
   font-size: 1rem;
   font-weight: 500;
-  min-height: 44px; /* Touch target size */
+  min-height: 44px;
+  /* Touch target size */
   display: flex;
   align-items: center;
   justify-content: center;
