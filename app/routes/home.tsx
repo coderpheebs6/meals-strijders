@@ -1,14 +1,15 @@
-import { Link } from "react-router";
+import { Link, useLoaderData } from "react-router";
 
 export const clientLoader = async () => {
-  const categories = [
-    
-  ];
-
-  return { categories };
+  const response = await fetch("https://www.themealdb.com/api/json/v1/1/categories.php");
+  const data = await response.json();
+  return { categories: data.categories };
 };
 
 const Home = () => {
+  const { categories } = useLoaderData();
+
+  const featuredCategory = categories[0]; // Show the first category as preview
 
   return (
     <div className="container">
@@ -16,9 +17,11 @@ const Home = () => {
         <Link to="/categories">Categories</Link>
         <Link to="/meals-detail">Latest Meals</Link>
       </nav>
-      <div className="post">
-        <h2>Sample Meal Post</h2>
-        <p>This is a placeholder for a meal post. You can add more content here.</p>
+      <div className="category-preview">
+        <img src={featuredCategory.strCategoryThumb} alt={featuredCategory.strCategory} />
+        <h2>{featuredCategory.strCategory}</h2>
+        <p>{featuredCategory.strCategoryDescription.substring(0, 100)}...</p>
+        <Link to="/categories">View all categories</Link>
       </div>
     </div>
   );
