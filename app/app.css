@@ -32,21 +32,24 @@ body {
   flex-wrap: wrap;
 }
 
-.top-buttons button {
+.top-buttons a {
   padding: 0.75rem 1.5rem;
   background-color: #007bff;
   color: white;
-  border: none;
+  text-decoration: none;
   border-radius: 0.5rem;
-  cursor: pointer;
   font-size: 1rem;
   font-weight: 500;
   min-height: 44px; /* Touch target size */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex: 1;
   max-width: 150px;
+  box-sizing: border-box;
 }
 
-.top-buttons button:hover {
+.top-buttons a:hover {
   background-color: #0056b3;
 }
 
@@ -72,4 +75,48 @@ body {
 .post p {
   color: #666;
   line-height: 1.5;
+}
+
+.category-preview {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 1.5rem;
+  border: none;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.category-preview img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.category-preview h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #333;
+}
+
+.category-preview p {
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.category-preview a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.category-preview a:hover {
+  text-decoration: underline;
 }
