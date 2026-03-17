@@ -1,29 +1,35 @@
-import { Link } from "react-router";
+import { Link, useLoaderData } from "react-router";
 
-export const loader = async () => {
-
-    const data = await fetch(
+export const clientLoader = async () => {
+    const response = await fetch(
         "https://www.themealdb.com/api/json/v1/1/categories.php"
-    ).then((r) => r.json());
-    return { categories: data.results };
+    );
+    const data = await response.json();
+    return { categories: data.categories };
 }
 
-const MealsCategories = ({ loaderData }) => {
-    const { categories } = loaderData;
+const MealsCategories = () => {
+    const { categories } = useLoaderData();
 
     return (
-        <div>
-            <nav>
-                <Link to="/">Home</Link>
+        <div className="container categories-page">
+            <nav className="top-buttons">
+                <Link to="/" className="nav-button">Home</Link>
             </nav>
-            <h1>Categories</h1>
-            {/* <ul>
-                {categories.map((category) => (
-                    <li key={category.id}>
-                        
-                    </li>
-                ))}
-            </ul> */}
+            <div className="post categories-post">
+                <h1 className="categories-title">Categories</h1>
+                {categories.length > 0 ? (
+                    <ul className="categories-list">
+                        {categories.map((category) => (
+                            <li key={category.idCategory} className="category-item">
+                                <Link to={`/meals-details/${category.idCategory}`}>{category.strCategory}</Link>
+                            </li>
+                        ))}
+                    </ul>
+                ) : (
+                    <p className="categories-empty">No categories found yet.</p>
+                )}
+            </div>
         </div>
     )
 }
