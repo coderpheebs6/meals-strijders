@@ -163,3 +163,56 @@ body {
 .meal-card a:hover {
   text-decoration: underline;
 }
+
+/* Categories page styles */
+.categories-page {
+  padding-bottom: 2rem;
+}
+
+.categories-post {
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.categories-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #333;
+  text-align: center;
+}
+
+.categories-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+.category-item {
+  background-color: #f3f4f6;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.category-item a {
+  display: block;
+  color: #1f2937;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.category-item a:hover {
+  color: #0b5394;
+}
+
+.categories-empty {
+  text-align: center;
+  color: #6b7280;
+}
