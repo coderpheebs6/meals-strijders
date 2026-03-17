@@ -1,13 +1,3 @@
-import type { Route } from "./+types/home";
-import { Link } from "react-router";
-import { Welcome } from "../welcome/welcome";
-
-export function meta({}: Route.MetaArgs) {
-  return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
-  ];
-}
 export const clientLoader = async () => {
   const categories = [
     
@@ -31,3 +21,5 @@ const Home = () => {
     </div>
   );
 };
+
+export default Home;
