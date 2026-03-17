@@ -30,6 +30,7 @@ const Home = () => {
         <img src={featuredCategory.strCategoryThumb} alt={featuredCategory.strCategory} />
         <h2>{featuredCategory.strCategory}</h2>
         <p>{featuredCategory.strCategoryDescription.substring(0, 100)}...</p>
+        <Link to={`/meals-detail/${featuredCategory.idCategory}`}>Bekijk {featuredCategory.strCategory}</Link>
         <Link to="/categories">View all categories</Link>
       </div>
     </div>
